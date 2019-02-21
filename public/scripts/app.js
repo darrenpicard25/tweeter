@@ -47,7 +47,8 @@ $(() => {
   $('#toggle-button').click(function() {
     console.log('Click');
     if ( $( "#postTweet" ).is( ":hidden" ) ) {
-      $( "#postTweet" ).slideDown( "slow" );
+      $( "#postTweet" ).slideDown();
+      $('#postTweet textarea').select();
     } else {
       $( "#postTweet" ).slideUp();
     }
