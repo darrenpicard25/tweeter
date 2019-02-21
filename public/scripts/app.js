@@ -49,24 +49,40 @@ $(() => {
     if ( $( "#postTweet" ).is( ":hidden" ) ) {
       $( "#postTweet" ).slideDown();
       $('#postTweet textarea').select();
+      $('#Popup').hide();
+      $('#newTweetForm textarea').css('background-color', 'white');
+
     } else {
       $( "#postTweet" ).slideUp();
+      $('#Popup').hide();
+      $('#newTweetForm textarea').css('background-color', 'white');
+
     }
 });
+  $('#newTweetForm').on('click', function() {
+    $('#Popup').hide();
+    $('#newTweetForm textarea').css('background-color', 'white');
+
+  });
 
   $('#newTweetForm').on('submit', function() {
     event.preventDefault();
     let counter = $(this).children('.counter').text();
     if (counter >= 0 && counter < 140) {
       let data = $(this).serialize();
+      $(this).children('textarea').val('');
+      $(this).children('.counter').text(140);
       $.post('/tweets', data, function(data) {
       $('#tweets-container').prepend(createTweetElement(data));
 
       });
     } else if (counter < 0) {
-      alert('Message is to Long');
+        $('#Popup').text('Message is to long').show();
+        $('#newTweetForm textarea').css('background-color', '#f68181');
     } else {
-      alert('No message to Tweet');
+        $('#Popup').text('Need to enter message to Tweet').show();
+        $('#newTweetForm textarea').css('background-color', '#f68181');
+
     }
   });
 });
