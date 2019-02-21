@@ -72,8 +72,9 @@ $(() => {
       let data = $(this).serialize();
       $(this).children('textarea').val('');
       $(this).children('.counter').text(140);
-      $.post('/tweets', data, function(data) {
-      $('#tweets-container').prepend(createTweetElement(data));
+      $.post('/tweets', data, function(returnData) {
+        console.log(returnData);
+      $('#tweets-container').prepend(createTweetElement(returnData));
 
       });
     } else if (counter < 0) {
