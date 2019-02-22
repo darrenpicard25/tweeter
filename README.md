@@ -12,11 +12,11 @@ Tweeter is a simple, single-page Twitter clone.
 
 ## Dependencies
 
-  -body-parser
-  -chance
-  -express
-  -md5
-  -mongodb
+-body-parser
+-chance
+-express
+-md5
+-mongodb
 
 ## Getting Started
 
