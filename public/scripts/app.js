@@ -8,6 +8,29 @@
 
 $(() => {
   function createTweetElement(data) {
+   let currentDate = new Date(Date.now());
+    let tweetDate = new Date(data.created_at);
+    let numYear = currentDate.getFullYear() - tweetDate.getFullYear();
+    let numMonths = currentDate.getMonth() - tweetDate.getMonth();
+    let numDays = currentDate.getDate() - tweetDate.getDate();
+    let numHours = currentDate.getHours() - tweetDate.getHours();
+    let numMin = currentDate.getMinutes() - tweetDate.getMinutes();
+
+    let displayDate;
+      const resolveS = (num) => num !== 1 ? 's' : '';
+      if (numYear >= 1) {
+        displayDate = `${numYear} year${resolveS(numYear)} ago`;
+      } else if (numMonths >= 1) {
+        displayDate = `${numMonths} month${resolveS(numMonths)} ago`;
+      } else if (numDays >= 1) {
+        displayDate = `${numDays} day${resolveS(numDays)} ago`;
+      } else if (numHours >= 1) {
+        displayDate = `${numHours} hour${resolveS(numHours)} ago`;
+      } else if (numMin >= 1) {
+        displayDate = `${numMin} minute${resolveS(numMin)} ago`;
+      } else {
+        displayDate = 'Recent Post';
+      }
     let $tweet = $("<article>").addClass("new-tweet");
     let $header = $("<header>").append($('<img>').attr('alt', 'Profile Pic').attr('src', data.user.avatars.small))
                                 .append($('<h4>').text(data.user.name))
@@ -17,7 +40,7 @@ $(() => {
     let $middleDiv = $("<div>").append($('<p>').text(data.content.text));
 
     let $footer = $("<footer>")
-                                .append($('<p>').text(data.created_at))
+                                .append($('<p>').text(displayDate))
                                 .append($('<i>').addClass("far fa-flag"))
                                 .append($('<i>').addClass("fas fa-retweet"))
                                 .append($('<i>').addClass("fas fa-heart"));
@@ -45,7 +68,6 @@ $(() => {
   loadTweets();
 
   $('#toggle-button').click(function() {
-    console.log('Click');
     if ( $( "#postTweet" ).is( ":hidden" ) ) {
       $( "#postTweet" ).slideDown();
       $('#postTweet textarea').select();
@@ -73,7 +95,6 @@ $(() => {
       $(this).children('textarea').val('');
       $(this).children('.counter').text(140);
       $.post('/tweets', data, function(returnData) {
-        console.log(returnData);
       $('#tweets-container').prepend(createTweetElement(returnData));
 
       });

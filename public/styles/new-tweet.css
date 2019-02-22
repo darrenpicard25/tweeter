@@ -1,3 +1,7 @@
+#postTweet {
+  display: none;
+}
+
 .new-tweet {
   background-color: #eee;
   border-radius: 8px;
@@ -21,7 +25,9 @@
 }
 
 
-
+article.new-tweet i {
+  opacity: 0;
+}
 article.new-tweet {
   background-color: #eee;
   border-radius: 8px;
@@ -93,5 +99,9 @@ article.new-tweet {
 }
 
 article.new-tweet:hover {
+  opacity: 1;
+}
+
+article.new-tweet:hover > footer i {
   opacity: 1;
 }
