@@ -1,3 +1,10 @@
+/*
+
+This File is not important. It just has the Practice Exercise from the notes. Does not contribute
+to the tweeter App
+----------------------------------------------------------------------------------------------------
+*/
+
 "use strict";
 
 const MongoClient = require("mongodb").MongoClient;
@@ -8,11 +15,7 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
     console.error(`Failed to connect: ${MONGODB_URI}`);
     throw err;
   }
-
-  // We have a connection to the "tweeter" db, starting here.
   console.log(`Connected to mongodb: ${MONGODB_URI}`);
-
-  // ==> Refactored and wrapped as new, tweet-specific function:
 
   function getTweets(callback) {
     db.collection("tweets").find().toArray((err, tweets) => {
@@ -22,11 +25,6 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
       callback(null, tweets);
     });
   }
-
-  // ==> Later it can be invoked. Remember even if you pass
-  //     `getTweets` to another scope, it still has closure over
-  //     `db`, so it will still work. Yay!
-
   getTweets((err, tweets) => {
     if (err) throw err;
 
