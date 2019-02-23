@@ -33,12 +33,12 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <p id="Popup">Improper Character Count</p>
       <section class="new-tweet" id="postTweet">
         <h2>Compose Tweet</h2>
         <hr>
         <form action="/tweets/" method="POST" id="newTweetForm">
           <textarea name="text" placeholder="What are you humming about?"></textarea>
+          <p id="Popup">Improper Character Count</p>
           <input type="submit" value="Tweet">
           <span class="counter">140</span>
         </form>

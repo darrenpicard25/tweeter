@@ -68,21 +68,35 @@ $(() => {
     });
   }
 
+  function getTweetID(startingSpot){
+    console.log(startingSpot.parents('.new-tweet').data());
+    return startingSpot.parents().parents('.new-tweet').data('tweetId');
+  }
+
   function likeButtonPressed() {
     console.log('I m pressed');
     let button = $(this);
+    let ID = getTweetID($(this));
+    let amountLikes;
+    let isLiked;
     if(button.data('liked')) {
       button.removeClass('isLiked');
       button.data('liked', false);
-      let amountLikes = Number(button.siblings('#numLikes').text()) -1 ;
+      isLiked = false;
+      amountLikes = Number(button.siblings('#numLikes').text()) -1 ;
       button.siblings('#numLikes').text(amountLikes);
     } else {
       button.addClass('isLiked');
       button.data('liked', true);
-      let amountLikes = Number(button.siblings('#numLikes').text()) +1
+      isLiked = true;
+      amountLikes = Number(button.siblings('#numLikes').text()) +1;
       button.siblings('#numLikes').text(amountLikes);
     }
-
+      let templateData = {
+      numLikes: amountLikes,
+      tweet_id: ID,
+      liked: isLiked
+    };
   }
 
   //This just loads the tweets to the main page when the page loads/refreshs

@@ -114,6 +114,8 @@ article.new-tweet {
   margin: 10px 0;
   display: inline-block;
   vertical-align: middle;
+  word-break: break-word;
+  min-height: 30px;
 }
 
 .new-tweet footer p {
@@ -175,9 +177,6 @@ main.container {
   border: 1px solid red;
   padding: 5px 5px;
   font-weight: bold;
-  position: absolute;
-  top: 240px;
-  left: 200px;
   display: none;
 }
 

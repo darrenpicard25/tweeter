@@ -51,6 +51,10 @@ module.exports = function(DataHelpers) {
     });
   });
 
+  tweetsRoutes.put("/", function(req, res) {
+    console.log(req.body);
+  });
+
   return tweetsRoutes;
 
 }
