@@ -10,9 +10,10 @@ const app           = express();
 const MongoClient = require("mongodb").MongoClient;
 const MONGODB_URI = "mongodb://localhost:27017/tweeter";
 const connector = require("./lib/data-helpers.js");
+const methodOverride = require('method-override');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-
+app.use(methodOverride('_method'));
 /*
 Starting Mongo Database that connects my Server to Mongo
 -----------------------------------------------------------------

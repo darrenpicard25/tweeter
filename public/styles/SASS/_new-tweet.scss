@@ -7,22 +7,22 @@
   border: 1px solid lightgrey;
   padding: 1em 1em;
   margin-top: 10px;
-}
-.new-tweet h2 {
-  margin: 0 0;
-}
-.new-tweet hr {
-    margin: 0 0 1em 0;
-    border: 0.6px solid black;
-}
-.new-tweet textarea {
-  width: 100%;
-  padding: 0.4em 0.4em;
-}
-.new-tweet form span {
-  float: right;
-}
 
+  h2 {
+    margin: 0 0;
+  }
+  hr {
+      margin: 0 0 1em 0;
+      border: 0.6px solid black;
+  }
+  textarea {
+    width: 100%;
+    padding: 0.4em 0.4em;
+  }
+  form span {
+    float: right;
+  }
+}
 
 
 article.new-tweet i {
@@ -97,7 +97,9 @@ article.new-tweet {
 .new-tweet footer i {
   float: right;
   padding-right: 6px;
+  opacity: 0;
 }
+
 
 article.new-tweet:hover {
   opacity: 1;

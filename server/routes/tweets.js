@@ -26,7 +26,9 @@ module.exports = function(DataHelpers) {
     const tweet = {
       user: user,
       content: {
-        text: req.body.text
+        text: req.body.text,
+        numLikes: 0,
+        isLiked: false
       },
       created_at: Date.now()
     };

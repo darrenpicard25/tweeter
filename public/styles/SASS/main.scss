@@ -1,0 +1,39 @@
+@import 'nav';
+
+@import 'new-tweet';
+
+html {
+  box-sizing: border-box;
+  font-family: 'roboto condensed';
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0 0;
+  color: #244751;
+  background-color: #eee;
+
+}
+
+main.container {
+  width: 450px;
+  background-color: white;
+  margin: 0 auto;
+  padding: 120px 2em 2em 2em;
+ }
+
+ .container #Popup {
+  margin: 0 0;
+  padding: 0 0;
+  text-align: center;
+  background-color: #f68181;
+  border: 1px solid red;
+  padding: 5px 5px;
+  font-weight : bold;
+  position: absolute;
+  top: 240px;
+  left: 200px;
+  display: none;
+ }

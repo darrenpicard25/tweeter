@@ -1,49 +1,188 @@
-/*
- * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
- * https://css-tricks.com/international-box-sizing-awareness-day/
- * Do not modify these two selectors, please
- */
+#nav-bar {
+  position: fixed;
+  top: 0;
+  height: 80px;
+  width: 100%;
+  background-color: #00a087;
+  color: #e8fdff;
+  padding: 0 2em;
+  z-index: 1000;
+}
+#nav-bar .logo {
+  height: 80px;
+  width: 80px;
+  float: left;
+}
+#nav-bar .header {
+  float: left;
+  margin-left: 10px;
+  font-size: 2em;
+  line-height: 80px;
+}
+#nav-bar p {
+  margin: 15px 0;
+  padding: 10px 10px;
+  float: right;
+  border: 1px solid black;
+  background-color: #aeefdf;
+  color: #00a087;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#nav-bar p:hover {
+  background-color: white;
+  color: black;
+}
+
+#postTweet {
+  display: none;
+}
+
+.new-tweet {
+  background-color: #eee;
+  border-radius: 8px;
+  border: 1px solid lightgrey;
+  padding: 1em 1em;
+  margin-top: 10px;
+}
+.new-tweet h2 {
+  margin: 0 0;
+}
+.new-tweet hr {
+  margin: 0 0 1em 0;
+  border: 0.6px solid black;
+}
+.new-tweet textarea {
+  width: 100%;
+  padding: 0.4em 0.4em;
+}
+.new-tweet form span {
+  float: right;
+}
+
+article.new-tweet i {
+  opacity: 0;
+}
+
+article.new-tweet {
+  background-color: #eee;
+  border-radius: 8px;
+  border: 1px solid lightgrey;
+  padding: 0 0;
+  margin-top: 10px;
+  opacity: 0.6;
+}
+
+.new-tweet header {
+  width: auto;
+  height: 50px;
+  padding: 6px;
+}
+
+.new-tweet header img {
+  width: 30px;
+  height: 30px;
+  margin: 0 0;
+  padding: 0 0;
+  float: left;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.new-tweet h4 {
+  margin: 0 0;
+  float: left;
+  font-size: 1.2em;
+  padding-left: 1em;
+  color: grey;
+}
+
+.new-tweet header p {
+  margin: 0 0;
+  float: right;
+}
+
+.new-tweet div {
+  background-color: white;
+  width: 100%;
+  padding: 5px 5px;
+  opacity: 1;
+}
+
+.new-tweet div p {
+  margin: 10px 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.new-tweet footer p {
+  margin: 0 0;
+  padding: 5px;
+  display: inline;
+}
+
+.new-tweet footer {
+  background-color: white;
+  border-top: 1px solid grey;
+  border-radius: 8px;
+  display: inline-block;
+  width: 100%;
+  padding: 5px;
+}
+
+.new-tweet footer i {
+  float: right;
+  padding-right: 6px;
+  opacity: 0;
+}
+
+article.new-tweet:hover {
+  opacity: 1;
+}
+
+article.new-tweet:hover > footer i {
+  opacity: 1;
+}
+
 html {
   box-sizing: border-box;
-  font-family: 'roboto condensed';
+  font-family: "roboto condensed";
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
-
-/*
- * Global layout stuff
- */
 
 body {
   margin: 0 0;
   color: #244751;
   background-color: #eee;
-
 }
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-
 
 main.container {
   width: 450px;
   background-color: white;
   margin: 0 auto;
   padding: 120px 2em 2em 2em;
- }
+}
 
- .container #Popup {
+.container #Popup {
   margin: 0 0;
   padding: 0 0;
   text-align: center;
   background-color: #f68181;
   border: 1px solid red;
   padding: 5px 5px;
-  font-weight : bold;
+  font-weight: bold;
   position: absolute;
   top: 240px;
   left: 200px;
   display: none;
- }
+}
+
+.isLiked {
+  color: red;
+}
+
+/*# sourceMappingURL=layout.css.map */

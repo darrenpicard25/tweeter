@@ -44,8 +44,9 @@ $(() => {
                                 .append($('<p>').text(displayDate))
                                 .append($('<i>').addClass("far fa-flag"))
                                 .append($('<i>').addClass("fas fa-retweet"))
-                                .append($('<i>').addClass("fas fa-heart"));
-
+                                .append($('<i>').attr('id', 'likeButton').addClass("fas fa-heart").attr('data-liked', data.content.isLiked)).on('click', likeButtonPressed)
+                                .append($('<i>').text(data.content.numLikes));
+      console.log(data.content.numLikes);
     $tweet.append($header).append($middleDiv).append($footer);
   return $tweet;
   }
@@ -65,6 +66,18 @@ $(() => {
     $.get('/tweets').then(function (tweetData) {
       renderTweets(tweetData);
     });
+  }
+
+  function likeButtonPressed() {
+    let button = $(this).children('#likeButton');
+    if(button.data('liked')) {
+      button.removeClass('isLiked');
+      button.data('liked', false);
+    } else {
+      button.addClass('isLiked');
+      button.data('liked', true);
+    }
+
   }
 
   //This just loads the tweets to the main page when the page loads/refreshs
@@ -117,4 +130,5 @@ $(() => {
 
     }
   });
+
 });
