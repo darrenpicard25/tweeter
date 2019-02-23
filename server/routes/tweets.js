@@ -7,6 +7,15 @@ const tweetsRoutes  = express.Router();
 
 module.exports = function(DataHelpers) {
 
+  function generateRandomID() {
+    let choices = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789';
+    let generatedID = '';
+    for (let i = 0; i < 6; i++) {
+      generatedID += choices[Math.floor(Math.random()*choices.length)];
+    }
+    return generatedID;
+  }
+
   tweetsRoutes.get("/", function(req, res) {
     DataHelpers.getTweets((err, tweets) => {
       if (err) {
@@ -24,6 +33,7 @@ module.exports = function(DataHelpers) {
     }
     const user = req.body.user ? req.body.user : userHelper.generateRandomUser();
     const tweet = {
+      tweet_id: generateRandomID(),
       user: user,
       content: {
         text: req.body.text,

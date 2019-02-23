@@ -32,7 +32,7 @@ $(() => {
       }
     //This creates the Jquery object that will be appended
     //Adds the appropriate information depending on the object passed into the function
-    let $tweet = $("<article>").addClass("new-tweet");
+    let $tweet = $("<article>").addClass("new-tweet").attr('data-tweet-id', data.tweet_id);
     let $header = $("<header>").append($('<img>').attr('alt', 'Profile Pic').attr('src', data.user.avatars.small))
                                 .append($('<h4>').text(data.user.name))
                                 .append($('<p>').text(data.user.handle));
@@ -44,8 +44,8 @@ $(() => {
                                 .append($('<p>').text(displayDate))
                                 .append($('<i>').addClass("far fa-flag"))
                                 .append($('<i>').addClass("fas fa-retweet"))
-                                .append($('<i>').attr('id', 'likeButton').addClass("fas fa-heart").attr('data-liked', data.content.isLiked)).on('click', likeButtonPressed)
-                                .append($('<i>').text(data.content.numLikes));
+                                .append($('<i>').attr('id', 'likeButton').addClass("fas fa-heart").attr('data-liked', data.content.isLiked).on('click', likeButtonPressed))
+                                .append($('<i>').text(data.content.numLikes).attr('id', 'numLikes'));
       console.log(data.content.numLikes);
     $tweet.append($header).append($middleDiv).append($footer);
   return $tweet;
@@ -69,13 +69,18 @@ $(() => {
   }
 
   function likeButtonPressed() {
-    let button = $(this).children('#likeButton');
+    console.log('I m pressed');
+    let button = $(this);
     if(button.data('liked')) {
       button.removeClass('isLiked');
       button.data('liked', false);
+      let amountLikes = Number(button.siblings('#numLikes').text()) -1 ;
+      button.siblings('#numLikes').text(amountLikes);
     } else {
       button.addClass('isLiked');
       button.data('liked', true);
+      let amountLikes = Number(button.siblings('#numLikes').text()) +1
+      button.siblings('#numLikes').text(amountLikes);
     }
 
   }
