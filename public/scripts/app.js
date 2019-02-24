@@ -135,7 +135,7 @@ $(() => {
       let data = $(this).serialize();
       $(this).children('textarea').val('');
       $(this).children('.counter').text(140);
-      $.post('/tweets', data, function(returnData) {
+      $.post('/tweets/', data, function(returnData) {
       $('#tweets-container').prepend(createTweetElement(returnData));
 
       });
